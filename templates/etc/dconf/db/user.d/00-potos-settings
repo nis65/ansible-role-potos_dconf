@@ -1,0 +1,3 @@
+# blub
+[org/gnome/shell]
+favorite-apps=['org.gnome.Nautilus.desktop', 'libreoffice-writer.desktop', 'snap-store_ubuntu-software.desktop', 'yelp.desktop']

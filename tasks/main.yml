@@ -8,7 +8,18 @@
     group: root
     mode: '0755'
 
-- name: Create user profile
+- name: user profile directory
+  ansible.builtin.file:
+    path: /etc/dconf/db/user.d
+    state: directory
+    mode: '0755'
+
+- name: dconf user profile key file
+  ansible.builtin.template:
+    src: 'etc/dconf/db/user.d/00-potos-settings'
+    dest: '/etc/dconf/db/user.d/00-potos-settings'
+
+- name: Enable user profile
   ansible.builtin.copy:
     src: 'etc/dconf/profile/user'
     dest: '/etc/dconf/profile/user'
