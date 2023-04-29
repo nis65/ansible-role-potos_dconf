@@ -1,3 +1,5 @@
 # blub
 [org/gnome/shell]
 favorite-apps=['org.gnome.Nautilus.desktop', 'libreoffice-writer.desktop', 'snap-store_ubuntu-software.desktop', 'yelp.desktop']
+
+# favaps= {{ potos_dconf_org_gnome_shell_favorite_apps | join (', ') }}
