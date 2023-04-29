@@ -17,3 +17,11 @@ argument_specs:
         elements: str
         required: no
         default: []
+      potos_dconf_org_gnome_shell_favorite_apps:
+        description:
+          - List of menu icons to be displayed
+        type: list
+        elements: str
+        required: no
+        default: 
+          - 'org.gnome.Nautilus.desktop'
