@@ -10,14 +10,14 @@
 
 - name: user profile directory
   ansible.builtin.file:
-    path: /etc/dconf/db/user.d
+    path: /etc/dconf/db/local.d
     state: directory
     mode: '0755'
 
 - name: dconf user profile key file
   ansible.builtin.template:
-    src: 'etc/dconf/db/user.d/00-potos-settings'
-    dest: '/etc/dconf/db/user.d/00-potos-settings'
+    src: 'etc/dconf/db/local.d/00-potos-settings'
+    dest: '/etc/dconf/db/local.d/00-potos-settings'
   notify: 'Rebuild dconf database'
 
 - name: Enable user profile
