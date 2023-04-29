@@ -7,3 +7,9 @@
     owner: root
     group: root
     mode: '0755'
+
+- name: Create user profile
+  ansible.builtin.copy:
+    src: 'etc/dconf/profile/user'
+    dest: '/etc/dconf/profile/user'
+    mode: '644'
