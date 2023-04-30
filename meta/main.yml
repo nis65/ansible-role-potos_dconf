@@ -4,7 +4,7 @@ galaxy_info:
   author: Project Potos
   description: Role to manage dconf settings
   company: Project Potos
-  role_name: potos_dconf
+  role_name: potos_dconf_XXX
   namespace: projectpotos
   license: GPL-3.0-only
   min_ansible_version: '2.12'
