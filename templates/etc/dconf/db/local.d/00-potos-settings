@@ -6,7 +6,7 @@ favorite-apps=['org.gnome.Nautilus.desktop', 'libreoffice-writer.desktop', 'snap
 #
 # {% if potos_dconf_org_gnome_shell_favorite_apps is defined %}
 # {% if potos_dconf_org_gnome_shell_favorite_apps | length > 0 %}
-# favaps=['{{ potos_dconf_org_gnome_shell_favorite_apps | join ("', '")']
+# favaps=['{{ potos_dconf_org_gnome_shell_favorite_apps | join ("', '") }}']
 # {% endif %}
 # {% endif %}
 
