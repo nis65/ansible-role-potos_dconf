@@ -1,0 +1,25 @@
+
+# tweak gnome window manager
+
+{% if potos_dconf_20_window_manager is defined %}
+
+{% if potos_dconf_20_window_manager.preferences is defined %}
+[org/gnome/desktop/wm/preferences]
+{% if potos_dconf_20_window_manager.preferences.focus_mode is defined %}
+focus-mode='{{ potos_dconf_20_window_manager.preferences.focus_mode }}'
+{% endif %}
+{% if potos_dconf_20_window_manager.preferences.autoraise is defined and not potos_dconf_20_window_manager.preferences.autoraise %}
+auto-raise=false
+{% endif %}
+{% endif %}
+
+{% if potos_dconf_20_window_manager.keybindings is defined %}
+[org/gnome/desktop/wm/keybindings]
+{% if potos_dconf_20_window_manager.keybindings.raise_or_lower is defined %}
+{% if potos_dconf_20_window_manager.keybindings.raise_or_lower | length > 0 %}
+raise-or-lower=['{{ potos_dconf_20_window_manager.keybindings.raise_or_lower | join ("', '") }}']
+{% endif %}
+{% endif %}
+{% endif %}
+
+{% endif %}
