@@ -8,8 +8,8 @@
 
 - name: dconf generic user profile key file
   ansible.builtin.template:
-    src: 'etc/dconf/db/local.d/00-potos-settings.j2'
-    dest: '/etc/dconf/db/local.d/00-potos-settings'
+    src: 'etc/dconf/db/local.d/90-potos-custom.j2'
+    dest: '/etc/dconf/db/local.d/90-potos-custom'
     mode: '0644'
   notify: 'Rebuild dconf database'
 
