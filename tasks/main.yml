@@ -6,14 +6,14 @@
     state: directory
     mode: '0755'
 
-- name: dconf user profile key file: generic
+- name: dconf generic user profile key file
   ansible.builtin.template:
     src: 'etc/dconf/db/local.d/00-potos-settings'
     dest: '/etc/dconf/db/local.d/00-potos-settings'
     mode: '0644'
   notify: 'Rebuild dconf database'
 
-- name: dconf user profile key file: window manager
+- name: dconf window manager user profile key file
   ansible.builtin.template:
     src: 'etc/dconf/db/local.d/20-potos-window-manager.j2'
     dest: '/etc/dconf/db/local.d/20-potos-window-manager'
