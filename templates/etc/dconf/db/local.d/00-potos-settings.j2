@@ -17,7 +17,7 @@ clock-show-seconds=true
 
 {% for dconf_entry in potos_dconf_custom %}
 [{{ dconf_entry.dconf_path }}]
-{% for setting in settings %}
+{% for setting in dconf_entry.settings %}
 {% if setting.value_bool is defined %}
 {% if setting.value_bool %}
 {{ setting.name }}=true
