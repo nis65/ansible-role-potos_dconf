@@ -1,5 +1,5 @@
 ---
 
 - name: Rebuild dconf database
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: "/usr/bin/dconf update"
