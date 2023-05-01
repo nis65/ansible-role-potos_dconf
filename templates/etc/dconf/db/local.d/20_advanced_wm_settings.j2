@@ -1,0 +1,15 @@
+# advanced settings for window manager
+{% if potos_dconf_20_advanced_wm_settings is defined and potos_dconf_20_advanced_wm_settings %}
+#   focus follows mouse, but no autoraise
+#   make alt1/alt2 keybindings
+
+[org/gnome/desktop/wm/preferences]
+focus-mode='sloppy'
+auto-raise=false
+raise-on-click=false
+
+[org/gnome/desktop/wm/keybindings]
+raise-or-lower=['<Alt>1']
+{% else %}
+# set potos_dconf_20_advanced_wm_settings to enable
+{% endif %}
