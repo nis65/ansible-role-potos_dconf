@@ -7,14 +7,28 @@ favorite-apps=['{{ potos_dconf_org_gnome_shell_favorite_apps | join ("', '") }}'
 {% endif %}
 {% endif %}
 
-# tweak gnome mouse acceleration
-{% if potos_dconf_org_gnome_desktop_peripherals_mouse_accel_profile is defined %}
-[org/gnome/desktop/peripherals/mouse]
-accel-profile='{{ potos_dconf_org_gnome_desktop_peripherals_mouse_accel_profile }}'
-{% endif %}
-
 # tweak gnome top bar
 {% if potos_dconf_org_gnome_desktop_interface_clock_show_seconds is defined and potos_dconf_org_gnome_desktop_interface_clock_show_seconds %}
 [org/gnome/desktop/interface]
 clock-show-seconds=true
 {% endif %}
+
+# new generic code
+
+{% for dconf_entry in potos_dconf_custom %}
+[{{ dconf_entry.dconf_path }}]
+{% for setting in settings %}
+{% if setting.value_bool is defined %}
+{% if setting.value_bool %}
+{{ setting.name }}=true
+{% else %}
+{{ setting.name }}=false
+{% endif %}
+{% elif setting.value_string is defined %}
+{{ setting.name }}='{{ setting.value_string }}'
+{% elif setting.value_list_of_strings is defined %}
+{{ setting.name }}=['{{ setting.value_list_of_strings | join ("', '") }}']
+{% endif %}
+{% endfor %}
+{% endfor %}
+
