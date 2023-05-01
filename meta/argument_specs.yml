@@ -2,17 +2,11 @@
 
 argument_specs:
   main:
-    short_description: Role to use as template for new roles of Potos Linux Clients.
+    short_description: Role to manage dconf settings of Potos Linux Clients.
     options:
-      potos_template_example_var:
+      potos_dconf_org_gnome_shell_favorite_apps:
         description:
-          - Example variable
-        type: str
-        required: no
-        default: 'hello world!'
-      potos_template_example_list:
-        description:
-          - List of items used for action xyz
+          - List of items to be put into favorite-apps of org/gnome/shell
         type: list
         elements: str
         required: no
