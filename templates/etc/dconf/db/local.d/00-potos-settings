@@ -1,9 +1,16 @@
+
+# set default gnome menu entries
 {% if potos_dconf_org_gnome_shell_favorite_apps is defined -%}
 {% if potos_dconf_org_gnome_shell_favorite_apps | length > 0 -%}
-# set default gnome menu entries
 [org/gnome/shell]
 favorite-apps=['{{ potos_dconf_org_gnome_shell_favorite_apps | join ("', '") }}']
 {%- endif -%}
 {%- endif %}
 
-# favorite-apps=['org.gnome.Nautilus.desktop', 'libreoffice-writer.desktop', 'snap-store_ubuntu-software.desktop', 'yelp.desktop']
+# tweak gnome window handling
+
+# tweak gnome top bar
+{% if potos_dconf_org_gnome_desktop_interface_clock_show_seconds is defined and potos_dconf_org_gnome_desktop_interface_clock_show_seconds -%}
+[org/gnome/desktop/interface]
+clock-show-seconds=true
+{%- endif %}
