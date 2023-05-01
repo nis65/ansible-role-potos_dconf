@@ -13,6 +13,13 @@ favorite-apps=['{{ potos_dconf_org_gnome_shell_favorite_apps | join ("', '") }}'
 accel-profile='{{ potos_dconf_org_gnome_desktop_peripherals_mouse_accel_profile }}'
 {%- endif %}
 
+{% if potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower is defined -%}
+{% if potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower | length > 0 -%}
+[org/gnome/desktop/wm/keybindings]
+raise-or-lower=['{{ potos_dconf_org_gnome_desktop_wm_keybindings_raise | join ("', '") }}']
+{%- endif -%}
+{%- endif %}
+
 # tweak gnome top bar
 {% if potos_dconf_org_gnome_desktop_interface_clock_show_seconds is defined and potos_dconf_org_gnome_desktop_interface_clock_show_seconds -%}
 [org/gnome/desktop/interface]
