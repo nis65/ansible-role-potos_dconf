@@ -1,13 +1,5 @@
 ---
 
-- name: Example task to deploy a template
-  ansible.builtin.template:
-    src: 'potos.example.j2'
-    dest: '/potos.example'
-    owner: root
-    group: root
-    mode: '0755'
-
 - name: user profile directory
   ansible.builtin.file:
     path: /etc/dconf/db/local.d

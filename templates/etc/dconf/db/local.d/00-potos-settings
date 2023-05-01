@@ -1,13 +1,9 @@
-# blub
+{% if potos_dconf_org_gnome_shell_favorite_apps is defined -%}
+{% if potos_dconf_org_gnome_shell_favorite_apps | length > 0 -%}
+# set default gnome menu entries
 [org/gnome/shell]
-favorite-apps=['org.gnome.Nautilus.desktop', 'libreoffice-writer.desktop', 'snap-store_ubuntu-software.desktop', 'yelp.desktop']
+favorite-apps=['{{ potos_dconf_org_gnome_shell_favorite_apps | join ("', '") }}']
+{%- endif -%}
+{%- endif -%}
 
-# favaps=[ {{ potos_dconf_org_gnome_shell_favorite_apps | join (', ') }}
-#
-# {% if potos_dconf_org_gnome_shell_favorite_apps is defined %}
-# {% if potos_dconf_org_gnome_shell_favorite_apps | length > 0 %}
-# favaps=['{{ potos_dconf_org_gnome_shell_favorite_apps | join ("', '") }}']
-# {% endif %}
-# {% endif %}
-
-
+# favorite-apps=['org.gnome.Nautilus.desktop', 'libreoffice-writer.desktop', 'snap-store_ubuntu-software.desktop', 'yelp.desktop']

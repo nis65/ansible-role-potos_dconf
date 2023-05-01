@@ -2,7 +2,7 @@
 
 argument_specs:
   main:
-    short_description: Role main to use as template for new roles of Potos Linux Clients.
+    short_description: Role to use as template for new roles of Potos Linux Clients.
     options:
       potos_template_example_var:
         description:
@@ -17,14 +17,3 @@ argument_specs:
         elements: str
         required: no
         default: []
-##  dconf:
-##    short_description: Role dconf to use as template for new roles of Potos Linux Clients.
-##    options:
-##      potos_dconf_org_gnome_shell_favorite_apps:
-##        description:
-##          - List of menu icons to be displayed
-##        type: list
-##        elements: str
-##        required: no
-##        default:
-##          - 'org.gnome.Nautilus.desktop'
