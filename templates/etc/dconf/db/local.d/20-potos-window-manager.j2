@@ -8,7 +8,7 @@
 {% if potos_dconf_20_window_manager.preferences.focus_mode is defined %}
 focus-mode='{{ potos_dconf_20_window_manager.preferences.focus_mode }}'
 {% endif %}
-{% if potos_dconf_20_window_manager.preferences.autoraise is defined and not potos_dconf_20_window_manager.preferences.autoraise %}
+{% if potos_dconf_20_window_manager.preferences.auto_raise is defined and not potos_dconf_20_window_manager.preferences.auto_raise %}
 auto-raise=false
 {% endif %}
 {% endif %}
