@@ -10,6 +10,7 @@
   ansible.builtin.template:
     src: 'etc/dconf/db/local.d/00-potos-settings'
     dest: '/etc/dconf/db/local.d/00-potos-settings'
+    mode: '0644'
   notify: 'Rebuild dconf database'
 
 - name: Enable user profile
