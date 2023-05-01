@@ -1,7 +1,7 @@
 
 # set default gnome menu entries
-{% if potos_dconf_org_gnome_shell_favorite_apps is defined -%}
-{% if potos_dconf_org_gnome_shell_favorite_apps | length > 0 -%}
+{% if potos_dconf_org_gnome_shell_favorite_apps is defined %}
+{% if potos_dconf_org_gnome_shell_favorite_apps | length > 0 %}
 [org/gnome/shell]
 favorite-apps=['{{ potos_dconf_org_gnome_shell_favorite_apps | join ("', '") }}']
 {% endif %}
@@ -13,25 +13,25 @@ favorite-apps=['{{ potos_dconf_org_gnome_shell_favorite_apps | join ("', '") }}'
 accel-profile='{{ potos_dconf_org_gnome_desktop_peripherals_mouse_accel_profile }}'
 {% endif %}
 
-{% if potos_dconf_org_gnome_desktop_wm_preferences_focus_mode is defined -%}
+{% if potos_dconf_org_gnome_desktop_wm_preferences_focus_mode is defined %}
 [org/gnome/desktop/wm/preferences]
 focus-mode='{{ potos_dconf_org_gnome_desktop_wm_preferences_focus_mode }}'
-{%- endif %}
+{% endif %}
 
-{% if potos_dconf_org_gnome_desktop_wm_preferences_auto_raise is defined and not potos_dconf_org_gnome_desktop_wm_preferences_auto_raise -%}
+{% if potos_dconf_org_gnome_desktop_wm_preferences_auto_raise is defined and not potos_dconf_org_gnome_desktop_wm_preferences_auto_raise %}
 [org/gnome/desktop/wm/preferences]
 auto-raise=false
-{%- endif %}
+{% endif %}
 
-{% if potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower is defined -%}
-{% if potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower | length > 0 -%}
+{% if potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower is defined %}
+{% if potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower | length > 0 %}
 [org/gnome/desktop/wm/keybindings]
 raise-or-lower=['{{ potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower | join ("', '") }}']
 {% endif %}
 {% endif %}
 
 # tweak gnome top bar
-{% if potos_dconf_org_gnome_desktop_interface_clock_show_seconds is defined and potos_dconf_org_gnome_desktop_interface_clock_show_seconds -%}
+{% if potos_dconf_org_gnome_desktop_interface_clock_show_seconds is defined and potos_dconf_org_gnome_desktop_interface_clock_show_seconds %}
 [org/gnome/desktop/interface]
 clock-show-seconds=true
-{%- endif %}
+{% endif %}
