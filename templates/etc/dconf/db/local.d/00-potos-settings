@@ -13,6 +13,16 @@ favorite-apps=['{{ potos_dconf_org_gnome_shell_favorite_apps | join ("', '") }}'
 accel-profile='{{ potos_dconf_org_gnome_desktop_peripherals_mouse_accel_profile }}'
 {%- endif %}
 
+{% if potos_dconf_org_gnome_desktop_wm_preferences_focus_mode is defined -%}
+[org/gnome/desktop/wm/preferences]
+focus-mode='{{ potos_dconf_org_gnome_desktop_wm_preferences_focus_mode }}'
+{%- endif %}
+
+{% if potos_dconf_org_gnome_desktop_wm_preferences_auto_raise is defined and not potos_dconf_org_gnome_desktop_wm_preferences_auto_raise -%}
+[org/gnome/desktop/wm/preferences]
+auto-raise=false
+{%- endif %}
+
 {% if potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower is defined -%}
 {% if potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower | length > 0 -%}
 [org/gnome/desktop/wm/keybindings]
