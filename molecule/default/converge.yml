@@ -6,4 +6,4 @@
   tasks:
     - name: run role
       ansible.builtin.include_role:
-        name: 'ansible-role-potos_template'
+        name: 'ansible-role-potos_dconf'
