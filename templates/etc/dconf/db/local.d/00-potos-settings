@@ -16,7 +16,7 @@ accel-profile='{{ potos_dconf_org_gnome_desktop_peripherals_mouse_accel_profile 
 {% if potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower is defined -%}
 {% if potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower | length > 0 -%}
 [org/gnome/desktop/wm/keybindings]
-raise-or-lower=['{{ potos_dconf_org_gnome_desktop_wm_keybindings_raise | join ("', '") }}']
+raise-or-lower=['{{ potos_dconf_org_gnome_desktop_wm_keybindings_raise_or_lower | join ("', '") }}']
 {%- endif -%}
 {%- endif %}
 
