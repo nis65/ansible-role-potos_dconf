@@ -1,6 +1,11 @@
 ---
 
-- name: user profile directory
+- name: ensure dconf is installed
+  ansible.builtin.package:
+    name: 'dconf-cli'
+    state: present
+
+- name: ensure dconf db directory exists
   ansible.builtin.file:
     path: /etc/dconf/db/local.d
     state: directory
@@ -19,6 +24,12 @@
     dest: '/etc/dconf/db/local.d/20_advanced_wm_settings'
     mode: '0644'
   notify: 'Rebuild dconf database'
+
+- name: ensure dconf profile directory exists
+  ansible.builtin.file:
+    path: /etc/dconf/profile
+    state: directory
+    mode: '0755'
 
 - name: Enable user profile
   ansible.builtin.copy:

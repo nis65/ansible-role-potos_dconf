@@ -1,5 +1,5 @@
 
-{% for dconf_entry in potos_dconf_custom %}
+{% for dconf_entry in potos_dconf_custom | default([]) %}
 [{{ dconf_entry.dconf_path }}]
 {% for setting in dconf_entry.settings %}
 {% if setting.value_bool is defined %}
