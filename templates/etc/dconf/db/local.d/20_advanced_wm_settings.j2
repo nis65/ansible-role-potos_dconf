@@ -19,8 +19,11 @@ middle-click-emulation=true
 accel-profile='flat'
 
 # this setting is only applied after a relogin
+# find avilable layouts/variants with:
+# localectl list-x11-keymap-layouts
+# localectl list-x11-keymap-variants ch
 [org/gnome/desktop/input-sources]
-sources=[('xkb', 'ch+de_nodeadkeys')]
+sources=[('xkb', 'ch+de_nodeadkeys'), ('xkb', 'ch'), ('xkb', 'us')]
 {% else %}
 # set potos_dconf_20_advanced_wm_settings to enable
 {% endif %}
