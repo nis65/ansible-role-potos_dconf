@@ -8,7 +8,7 @@
   tasks:
     - name: check if template has been applied
       ansible.builtin.stat:
-        path: "/etc/dconf/db/local.d/00-potos-settings"
+        path: "/etc/dconf/db/local.d/90-potos-custom"
       register: out
       changed_when: false
       failed_when:

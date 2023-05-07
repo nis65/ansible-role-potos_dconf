@@ -1,0 +1,18 @@
+
+{% for dconf_entry in potos_dconf_custom | default([]) %}
+[{{ dconf_entry.dconf_path }}]
+{% for setting in dconf_entry.settings %}
+{% if setting.value_bool is defined %}
+{% if setting.value_bool %}
+{{ setting.name }}=true
+{% else %}
+{{ setting.name }}=false
+{% endif %}
+{% elif setting.value_string is defined %}
+{{ setting.name }}='{{ setting.value_string }}'
+{% elif setting.value_list_of_strings is defined %}
+{{ setting.name }}=['{{ setting.value_list_of_strings | join ("', '") }}']
+{% endif %}
+{% endfor %}
+
+{% endfor %}

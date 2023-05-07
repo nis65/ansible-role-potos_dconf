@@ -1,0 +1,33 @@
+# advanced settings for window manager
+{% if potos_dconf_20_advanced_wm_settings is defined and potos_dconf_20_advanced_wm_settings %}
+#   focus follows mouse, but no autoraise
+#   make alt1/alt2 keybindings
+
+[org/gnome/desktop/wm/preferences]
+focus-mode='sloppy'
+auto-raise=false
+raise-on-click=false
+
+[org/gnome/desktop/wm/keybindings]
+raise-or-lower=['<Alt>1']
+
+[org/gnome/desktop/peripherals/touchpad]
+click-method='areas'
+middle-click-emulation=true
+
+[org/gnome/desktop/peripherals/mouse]
+accel-profile='flat'
+
+[org/gnome/desktop/calendar]
+show-weekdate=true
+
+# this setting is only applied after a relogin
+# find avilable layouts/variants with:
+# localectl list-x11-keymap-layouts
+# localectl list-x11-keymap-variants ch
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'ch+de_nodeadkeys'), ('xkb', 'ch'), ('xkb', 'us')]
+{% else %}
+# set potos_dconf_20_advanced_wm_settings to enable
+{% endif %}
+
