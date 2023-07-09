@@ -1,7 +1,13 @@
 ---
 
-potos_dconf_org_gnome_shell_favorite_apps:
-  - "org.gnome.Nautilus.desktop"
-  - "libreoffice-writer.desktop"
-  - "snap-store_ubuntu-software.desktop"
-  - "yelp.desktop"
+potos_dconf_20_advanced_wm_settings: false
+
+potos_dconf_custom:
+  - dconf_path: "org/gnome/shell"
+    settings:
+      - name: "favorite-apps"
+        value_list_of_strings:
+          - "org.gnome.Nautilus.desktop"
+          - "libreoffice-writer.desktop"
+          - "snap-store_ubuntu-software.desktop"
+          - "yelp.desktop"
