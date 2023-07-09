@@ -8,6 +8,8 @@
 {% else %}
 {{ setting.name }}=false
 {% endif %}
+{% elif setting.value_uint32 is defined %}
+{{ setting.name }}=uint32 {{ setting.value_uint32 }}
 {% elif setting.value_string is defined %}
 {{ setting.name }}='{{ setting.value_string }}'
 {% elif setting.value_list_of_strings is defined %}
