@@ -25,6 +25,13 @@
     mode: '0644'
   notify: 'Rebuild dconf database'
 
+- name: dconf gnome-terminal profiles user profile key file
+  ansible.builtin.template:
+    src: 'etc/dconf/db/local.d/30_gnome_terminal_profiles.j2'
+    dest: '/etc/dconf/db/local.d/30_gnome_terminal_profiles'
+    mode: '0644'
+  notify: 'Rebuild dconf database'
+
 - name: ensure dconf profile directory exists
   ansible.builtin.file:
     path: /etc/dconf/profile
