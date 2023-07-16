@@ -1,0 +1,38 @@
+# This overrides the default profiles set by other/earlier mechanisms.
+# Can be overridden by user settings stored in ~/.config/dconf
+
+{% if potos_dconf_30_gnome_terminal_profiles is defined and potos_dconf_30_gnome_terminal_profiles %}
+[org/gnome/terminal/legacy/profiles:]
+default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '5cf4d90b-236e-4948-9924-4bd508450d92', '0dc416ca-169b-4fad-a949-b0d051ab221d']
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(255,255,221)'
+bold-is-bright=true
+foreground-color='rgb(0,0,0)'
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='potos-bright'
+
+[org/gnome/terminal/legacy/profiles:/:5cf4d90b-236e-4948-9924-4bd508450d92]
+background-color='rgb(0,0,0)'
+bold-is-bright=true
+foreground-color='rgb(219,219,219)'
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='potos-dark'
+
+[org/gnome/terminal/legacy/profiles:/:0dc416ca-169b-4fad-a949-b0d051ab221d]
+background-color='rgb(0,0,0)'
+bold-is-bright=true
+foreground-color='rgb(0,255,0)'
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='potos-green-dark'
+
+{% else %}
+# set potos_dconf_30_gnome_terminal_profiles to enable
+{% endif %}
