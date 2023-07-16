@@ -11,8 +11,10 @@ gnome user and system settings and override gnome or distribution specific setti
 
 ## Lock Down not supported (yet)
 
-By default, gnome interprets system settings as defaults that can be overriden by the user.
-But it is also possible to [lock down](https://help.gnome.org/admin/system-admin-guide/stable/dconf-lockdown.html.en)
+By default, gnome interprets all dconf settings as defaults that can be overriden by the user.
+Such user specific settings are stored in `~/.config/dconf`.
+
+It is possible to [lock down](https://help.gnome.org/admin/system-admin-guide/stable/dconf-lockdown.html.en)
 settings, so users cannot change them any more.
 
 [![Test](https://github.com/nis65/ansible-role-potos_dconf/actions/workflows/test.yml/badge.svg)](https://github.com/nis65/ansible-role-potos_dconf/actions/workflows/test.yml)
@@ -22,9 +24,8 @@ settings, so users cannot change them any more.
 Be aware that the following commands can return different values
 depending on the user session you are logged in right now.
 
-
-* `dconf dump /` lists all dconf settings. This lists only
-  the settings explicitly set somewhere.
+* `dconf dump /` lists all settings **that are explicitly set**
+  somewhere. Default values are not shown.
 * `gsettings list-recursively` lists really all variables
   currently known and their values. Use this to search for
   a certain setting, translate it back to `dconf` format
@@ -56,7 +57,14 @@ There are two ways to use this role to configure system wide dconf default setti
   is actually configured. Most likely you don't like my very personal settings. In this
   case, you could expand this role an adding another template/variable.
 
-* use the `potos_dconf_custom` list variable to configure arbitrary settings. This
+* and/or setting `potos_dconf_30_gnome_terminal_profiles` to true. This activates another
+  set of `dconf' options: Three `gnome-terminal` profiles are defined:
+
+  * `potos-bright`: black on off-white, default profile
+  * `potos-dark`: white on black
+  * `potos-green-dark`: green on black
+
+* and/or use the `potos_dconf_custom` list variable to configure arbitrary settings. This
   can be used as starting point for implementing your own preconfigured set.
 
 You can use both ways in the same config, but: **WARNING** When the same `dconf` setting
@@ -107,6 +115,8 @@ The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 ---
 
 potos_dconf_20_advanced_wm_settings: false
+
+potos_dconf_30_gnome_terminal_profiles: false
 
 potos_dconf_custom:
   - dconf_path: "org/gnome/shell"
