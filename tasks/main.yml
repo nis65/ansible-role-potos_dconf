@@ -18,7 +18,7 @@
     mode: '0644'
   notify: 'Rebuild dconf database'
 
-- name:  install gnome terminal profiles dconf file
+- name: install gnome terminal profiles dconf file
   ansible.builtin.template:
     src: 'etc/dconf/db/local.d/30_gnome_terminal_profiles.j2'
     dest: '/etc/dconf/db/local.d/30_gnome_terminal_profiles'
