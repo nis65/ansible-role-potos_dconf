@@ -44,3 +44,9 @@
     dest: '/etc/dconf/profile/user'
     mode: '644'
   notify: 'Rebuild dconf database'
+
+- name: Install wm toggle script
+  ansible.builtin.copy:
+    src: 'usr/local/bin/toggle-wm'
+    dest: '/usr/local/bin/toggle-wm'
+    mode: '755'
