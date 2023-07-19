@@ -1,0 +1,64 @@
+#!/bin/bash
+
+usage () {
+echo ""
+echo usage:
+echo "$0 [-t|-e|-s]"
+echo ""
+echo "-t toggle current mode (default)"
+echo "-e set expert mode"
+echo "-s set standard mode"
+echo ""
+exit 1
+}
+
+
+MODE=toggle
+
+while getopts tes option
+do
+  case $option in
+    t) ;;
+    e) MODE=setexp
+       ;;
+    s) MODE=setstd
+       ;;
+    *) usage
+       ;;
+  esac
+done
+
+do-std () {
+  echo setting std mode...
+  gsettings set org.gnome.desktop.wm.preferences focus-mode "'click'"
+  gsettings set org.gnome.desktop.wm.keybindings raise-or-lower "@as []"
+  gsettings set org.gnome.desktop.wm.preferences raise-on-click true
+}
+
+do-exp () {
+  echo setting expert mode...
+  gsettings set org.gnome.desktop.wm.preferences focus-mode "'sloppy'"
+  gsettings set org.gnome.desktop.wm.keybindings raise-or-lower "['<Alt>1']"
+  gsettings set org.gnome.desktop.wm.preferences raise-on-click false
+}
+
+do-toggle () {
+  FOCUS=`gsettings get org.gnome.desktop.wm.preferences focus-mode`
+  if [[ $FOCUS == "'sloppy'" ]]
+  then
+    do-std
+  else
+    do-exp
+  fi
+}
+
+echo MODE=$MODE
+
+case $MODE in
+  setexp) do-exp
+          ;;
+  setstd) do-std
+          ;;
+  toggle) do-toggle
+          ;;
+esac
