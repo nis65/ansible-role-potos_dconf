@@ -8,6 +8,6 @@ ansible-lint~=6.15.0
 yamllint~=1.32.0
 
 ## molecule tests
-molecule~=5.1.0
+molecule~=6.0.2
 molecule-plugins~=23.5.0
 docker~=6.1.3
